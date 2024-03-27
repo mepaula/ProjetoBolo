@@ -1,36 +1,46 @@
-import { View, Text, Button, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from "react-native";
+import React, { useContext, useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserContext } from "./Context/UserContext";
 
-const Login = ({ navigation }) => {
+export default function Login() {
+
+  const[ email, setEmail ] = useState("");
+  const[ senha, setSenha ] = useState("");
+  const[ erro, setErro ] = useState( false );
+
+  const {Login} = useContext( UserContext );
+
+  async function realizaLogin()
+  {
+      Login( email, senha );
+  }
+
     return (
       <View style={styles.container}>
+        <Image
+        source={require('../assets/foto-login.jpg')} //*imagem adicionada como logo
+        style={styles.foto}
+      />
         <Text style={styles.title}>Faça o seu Login!</Text>
         <Text style={styles.email}>Email ou CPF:</Text>
-        <Button 
-          title="Email" 
-          onPress={() => navigation.navigate('Email')} 
-          style={styles.button} 
-          color="#FFB6C1" // Cor do botão
-        />
-        <Text style={styles.telefone}>Telefone:</Text>
-        <Button 
-          title="Telefone" 
-          onPress={() => navigation.navigate('Telefone')} 
-          style={styles.button} 
-          color="#FFB6C1" // Cor do botão
+        <TextInput 
+        placeholder='Email ou CPF' 
+        style={styles.input}
+        value={email}
+        onChangeText={ (digitado) => setEmail( digitado )}
         />
         <Text style={styles.senha}>Senha:</Text>
-        <Button 
-          title="Senha" 
-          onPress={() => navigation.navigate('Senha')} 
-          style={styles.button} 
-          color="#FFB6C1" // Cor do botão
+        <TextInput
+        placeholder='Senha'
+        style={styles.input}
+        value={senha}
+        onChangeText={ (digitado) => setSenha( digitado)}
         />
-        <Button 
-          title="Acessar" 
-          onPress={() => navigation.navigate('Acessar')} 
-          style={styles.button} 
-          color="#FFB6C1" // Cor do botão
-        />
+        <TouchableOpacity onPress={realizaLogin}>
+          <Text style={styles.btnText}>Login</Text>
+        </TouchableOpacity>
+        {erro && <Text>Email ou senha está incorreta</Text>}
       </View>
     );
   };
@@ -47,20 +57,15 @@ const Login = ({ navigation }) => {
       fontWeight: 'bold',
       color: 'black', // Texto branco
       marginBottom: 45,
-      width: 300,
+      width: 200,
       alignItems: 'center'
     },
     email: {
-      fontSize: 25,
+      fontSize: 20,
       marginTop: 20,
       color: 'black',
     },
-    telefone: {
-      fontSize: 20,
-      marginTop: 20,
-      color: 'black'
-    },
-    button: {
+    input: {
       width: 300, // Largura do botão
       height: 50, // Altura do botão
       marginBottom: 10, // Espaçamento inferior
@@ -68,17 +73,32 @@ const Login = ({ navigation }) => {
       justifyContent: 'center', // Centraliza o texto dentro do botão
       alignItems: 'center', // Centraliza o texto dentro do botão
       backgroundColor: 'white', // Cor de fundo do botão
+      borderWidth: 1,
+      borderRadius: 10,
+      marginBottom: 20,
+      color: "black",
     },
     senha: {
         fontSize: 20,
         marginTop: 20,
-        color: 'black'
+        color: 'black',
     },
-    acessar: {
-        fontSize: 20,
-        marginTop: 20,
-        color: 'black'
+    btnText: {
+      width: 220, // Largura do botão
+      height: 50, // Altura do botão
+      marginBottom: 30, // Espaçamento inferior
+      borderRadius: 50, // Borda arredondada
+      justifyContent: 'center', // Centraliza o texto dentro do botão
+      alignItems: 'center', // Centraliza o texto dentro do botão
+      backgroundColor: 'black', // Cor de fundo do botão
+      color: 'white',
+      textAlign: 'center',
+      fontSize: 30
     },
+    foto: {
+      width: 200,
+      height: 150,
+      marginBottom: 20,
+      resizeMode: 'contain', // Ajustado ao tamanho da imagem desejado
+    }
   });
-
-export default Login;

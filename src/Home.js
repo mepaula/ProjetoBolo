@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Button, Image, StyleSheet } from 'react-native';
+import {UserContext} from './Context/UserContext';
 
 const Home = ({ navigation }) => {
+
+  const {usuario} = useContext( UserContext );
+
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Bem-Vinda {usuario}</Text>
       <Image
         source={require('./logo-bolo-1.png')} //*imagem adicionada como logo
         style={styles.logo}
       />
-      <Text style={styles.title}>Sejam Bem-Vindas!</Text>
       <Text style={styles.login}>Login</Text>
       <Button 
         title="Login" 
@@ -32,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'MistyRose', // Fundo preto
+    backgroundColor: 'PeachPuff', 
   },
   logo: {
     width: 200,
@@ -43,9 +47,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'white', // Texto branco
-    marginBottom: 45,
-    width: 300,
+    color: 'black', // Texto branco
+    marginBottom: 30,
+    width: 150,
     alignItems: 'center'
   },
   login: {

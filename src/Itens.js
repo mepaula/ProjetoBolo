@@ -32,13 +32,13 @@ const dados = [
     },
     {
         id: "05",
-        titulo: "Bolo de Laranja",
+        titulo: "Bolo de Casamento",
         preco: 300.99,
         data: "14/2/2024"
     },
     {
         id: "06",
-        titulo: "Bolo de Casamento",
+        titulo: "Bolo de Laranja",
         preco: 129.99,
         data: "19/4/2024"
     },
