@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black', // Texto branco
     marginBottom: 30,
-    width: 150,
+    width: 170,
     alignItems: 'center'
   },
   login: {

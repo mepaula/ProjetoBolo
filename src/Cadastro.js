@@ -1,65 +1,55 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
 
-export default function Agendar()
+export default function Cadastro()
 {
     return(
-        <View style={styles.container}>
-        <Text style={styles.title}>Faça o seu peddido aqui!...</Text>
-        <Text style={styles.massa}>Massa do seu bolo:</Text>
+    <View style={style.container}>
+        <Text style={style.title}>Faça o cadastro!</Text>
+        <Text style={style.nome}>Nome:</Text>
         <TextInput 
             placeholder=''
-            style={styles.input} 
+            style={style.input} 
         />
-        <Text style={styles.recheio}>Recheio do seu bolo:</Text>
+        <Text style={style.email}>Email:</Text>
         <TextInput 
             placeholder=''
-            style={styles.input} 
+            style={style.input} 
         />
-        <Text style={styles.junto}>Acompanhamento</Text>
+        <Text style={style.celular}>Telefone</Text>
         <TextInput 
             placeholder=''
-            style={styles.input} 
+            style={style.input} 
         />
-        <Text style={styles.decorado}>Decoração do bolo:</Text>
+        <Text style={style.senha}>Senha:</Text>
         <TextInput 
             placeholder='' 
-            style={styles.input}
-        />
-        <Text style={styles.data}>Data de retirada:</Text>
-        <TextInput 
-            placeholder='' 
-            style={styles.input}
+            style={style.input}
         />
         <TouchableOpacity>
-          <Text style={styles.btnText}>Feito</Text>
+          <Text style={style.btnText}>Cadastro Feito</Text>
         </TouchableOpacity>
-        </View>
+    </View>
     );
 };
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'MistyRose', 
+        backgroundColor: 'PeachPuff', 
     },
     title: {
-        fontSize: 20,
+        fontSize: 30,
         fontWeight: 'bold',
         color: 'black', // Texto branco
-        marginBottom: 10,
-        width: 190,
+        marginBottom: 15,
+        width: 150,
         alignItems: 'center'
-    },
-    massa: {
-        fontSize: 20,
-        marginTop: 10,
-        color: 'black',
     },
     input: {
         width: 300, // Largura do botão
-        height: 40, // Altura do botão
+        height: 50, // Altura do botão
         marginBottom: 10, // Espaçamento inferior
         borderRadius: 20, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
@@ -71,25 +61,30 @@ const styles = StyleSheet.create({
         color: "black",
         borderBlockColor: "pink",
     },
-    recheio: {
-        fontSize: 20,
+    nome: {
+        fontSize: 25,
         marginTop: 10,
         color: 'black',
     },
-    junto: {
-        fontSize: 20,
+    email: {
+        fontSize: 25,
         marginTop: 10,
         color: 'black',
     },
-    decorado: {
-        fontSize: 20,
+    celular: {
+        fontSize: 25,
+        marginTop: 10,
+        color: 'black',
+    },
+    senha: {
+        fontSize: 25,
         marginTop: 10,
         color: 'black',
     },
     btnText: {
-        width: 210, // Largura do botão
+        width: 230, // Largura do botão
         height: 45, // Altura do botão
-        marginBottom: 20, // Espaçamento inferior
+        marginBottom: 15, // Espaçamento inferior
         borderRadius: 15, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
         alignItems: 'center', // Centraliza o texto dentro do botão
@@ -98,9 +93,4 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: 'white',
     },
-    data: {
-        fontSize: 20,
-        marginTop: 10,
-        color: 'black',
-    }
-});
+})

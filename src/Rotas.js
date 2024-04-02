@@ -6,7 +6,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Agendar from "./Agendar";
 import Home from "./Home";
 import Itens from "./Itens";
-import Contatos from "./Contatos";
+import Pagamento from "./Pagamento";
+import Cadastro from "./Cadastro";
 import { UserContext } from "./Context/UserContext";
 import Login from "./Login";
 
@@ -24,9 +25,10 @@ export default function Rotas() {
         <NavigationContainer>
           <Tab.Navigator initialRouteName="Home">
             <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="Cadastro" component={Cadastro} />
             <Tab.Screen name="Agendar" component={Agendar} />
             <Tab.Screen name="Itens" component={Itens} />
-            <Tab.Screen name="Contatos" component={Contatos} />
+            <Tab.Screen name="Pagamento" component={Pagamento} />
           </Tab.Navigator>
         </NavigationContainer>
       )
