@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native"
 
-export default function Pagamento()
+export default function Pagamento( { navigation })
 {
     return(
         <View style={style.container}>
@@ -12,7 +12,7 @@ export default function Pagamento()
         <Text style={style.input}>Dinheiro:</Text>
         <Image source={require('../assets/foto-dinheiro.jpg')} style={style.dinheiro}/>
         <TouchableOpacity>
-          <Text style={style.btnText}>Finalizar</Text>
+          <Text style={style.btnText} onPress={() => navigation.navigate('Notas')}>Finalizar</Text>
         </TouchableOpacity>
         </View>
     );
@@ -23,7 +23,7 @@ const style =  StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'MistyRose', 
+        backgroundColor: '#fbcafb', 
     },
     cartao: {
         width: 200,
@@ -63,7 +63,7 @@ const style =  StyleSheet.create({
         borderRadius: 10, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
         alignItems: 'center', // Centraliza o texto dentro do botão
-        backgroundColor: 'pink', // Cor de fundo do botão
+        backgroundColor: '#f6b0f7', // Cor de fundo do botão
         textAlign: 'center',
         fontSize: 30,
         color: 'white',

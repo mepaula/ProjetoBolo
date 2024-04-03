@@ -1,6 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native"
 
-export default function Agendar()
+export default function Agendar({navigation})
 {
     return(
         <View style={styles.container}>
@@ -31,7 +31,7 @@ export default function Agendar()
             style={styles.input}
         />
         <TouchableOpacity>
-          <Text style={styles.btnText}>Feito</Text>
+          <Text style={styles.btnText} onPress={() => navigation.navigate('Pagamento')}>Feito</Text>
         </TouchableOpacity>
         </View>
     );
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'MistyRose', 
+        backgroundColor: '#fbcafb', 
     },
     title: {
         fontSize: 20,
@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginBottom: 20,
         color: "black",
-        borderBlockColor: "pink",
     },
     recheio: {
         fontSize: 20,
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
         borderRadius: 15, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
         alignItems: 'center', // Centraliza o texto dentro do botão
-        backgroundColor: 'pink', // Cor de fundo do botão
+        backgroundColor: '#f6b0f7', // Cor de fundo do botão
         textAlign: 'center',
         fontSize: 30,
         color: 'white',

@@ -5,10 +5,9 @@ export default function Produto({titulo, preco, categoria, data,image}) {
     <View style={css.caixa}>
         <Text style={css.titulo}>{titulo}</Text>
         <Text style={css.preco}>{preco}</Text>
-        <Text style={css.categoria}>{categoria}</Text>
         <Text style={css.data}>{data}</Text>     
         <View style={css.img2}>
-            <Image style={{ height: 80, width: 120 }}
+            <Image style={{ height: 80, width: 110 }}
                                 source={{ uri: image }} />
         </View>       
     </View>
@@ -20,7 +19,7 @@ const css = StyleSheet.create({
     caixa: {
         width: "40%",
         height: 190,
-        backgroundColor: "pink",
+        backgroundColor: "#fbcafb",
         borderRadius: 10,
         display: "flex",
         justifyContent: "center",
@@ -33,7 +32,8 @@ const css = StyleSheet.create({
     preco: {
         padding: 5,
         borderWidth: 1,
-        marginBottom: 5,
-        color: "black",        
+        color: "black", 
+        textAlign: "center" ,
+        margin: 10     
     },   
 })

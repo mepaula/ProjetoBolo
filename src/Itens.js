@@ -22,7 +22,7 @@ const dados = [
         titulo: "Bolo de Frutas Vermelhas",
         preco: 109.99,
         data: "1/11/2024",
-        image: "https://receitinhas.com.br/wp-content/uploads/2023/06/recheio-de-frutas-vermelhas.jpg"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXiWD63rgNc2oT9rsw8oO1mLFJu1aAh5EFs2Dwh7A-1oLBeoaV7HhOIqjBAMpnV8Wibc&usqp=CAU"
         
     },
     {
@@ -49,16 +49,30 @@ const dados = [
     {
         id: "07",
         titulo: "Bolo de Maracuja",
-        preco: 210.90,
+        preco: 210.95,
         data: "4/4/2024",
         image: "https://guiadacozinha.com.br/wp-content/uploads/2019/10/bolo-chocolate-maracuja.jpg"
     },
     {
         id: "08",
         titulo: "Bolo de Ninho com Nutela",
-        preco: 120.90,
+        preco: 120.95,
         data: "10/10/2024",
         image: "https://delicious.com.br/wp-content/uploads/2020/11/5.png"
+    },
+    {
+        id: "09",
+        titulo: "Bolo de Aniversáio",
+        preco: 150.53,
+        data: "9/9/2024",
+        image: "https://www.sabornamesa.com.br/media/k2/items/cache/7a0c9d8bd9eadf879f0011817e8c2396_XL.jpg"
+    },
+    { 
+        id: "10",
+        titulo: "Bolo de Pote",
+        preco: 55.95,
+        data: "20/12/2024",
+        image: "https://amoradoceria.com.br/wp-content/uploads/2021/06/sabores-de-bolo-no-pote-para-vender-1-1024x683.png"
     }
 
 ]

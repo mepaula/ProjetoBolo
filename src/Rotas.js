@@ -10,6 +10,7 @@ import Pagamento from "./Pagamento";
 import Cadastro from "./Cadastro";
 import { UserContext } from "./Context/UserContext";
 import Login from "./Login";
+import Notas from "./Notas";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,6 +30,7 @@ export default function Rotas() {
             <Tab.Screen name="Agendar" component={Agendar} />
             <Tab.Screen name="Itens" component={Itens} />
             <Tab.Screen name="Pagamento" component={Pagamento} />
+            <Tab.Screen name="Notas" component={Notas} />
           </Tab.Navigator>
         </NavigationContainer>
       )

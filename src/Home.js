@@ -10,7 +10,7 @@ const Home = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Bem-Vinda {usuario}</Text>
       <Image
-        source={require('./logo-bolo-1.png')} //*imagem adicionada como logo
+        source={require('../assets/logo-marca.jpg')} //*imagem adicionada como logo
         style={styles.logo}
       />
       <Text style={styles.login}>Login</Text>
@@ -18,14 +18,14 @@ const Home = ({ navigation }) => {
         title="Login" 
         onPress={() => navigation.navigate('Login')} 
         style={styles.button} 
-        color="#FFB6C1" // Cor do botão
+        color="#f6b0f7" // Cor do botão
       />
       <Text style={styles.cadastro}>Caso não tenho o login... se cadastre!</Text>
       <Button 
         title="Cadastre-se" 
         onPress={() => navigation.navigate('Cadastro')} 
         style={styles.button} 
-        color="#FFB6C1" // Cor do botão
+        color="#f6b0f7" // Cor do botão
       />
     </View>
   );
@@ -36,12 +36,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'PeachPuff', 
+    backgroundColor: '#fbcafb', 
   },
   logo: {
-    width: 200,
+    width: 210,
     height: 150,
-    marginBottom: 20,
+    marginBottom: 15,
     resizeMode: 'cover', // Ajustado ao tamanho da imagem desejado
   },
   title: {

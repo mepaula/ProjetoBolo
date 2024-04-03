@@ -1,36 +1,23 @@
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
 
-export default function Cadastro({navigation})
+
+export default function Notas({navigation}) 
 {
     return(
     <View style={style.container}>
-        <Text style={style.title}>Faça o cadastro!</Text>
-        <Text style={style.nome}>Nome:</Text>
+        <Text style={style.title}>Antes de finalizar, de uma nota e comente o que achou do nosso atendimento...</Text>
+        <Text style={style.comentar}>Comentários: </Text>
         <TextInput 
             placeholder=''
-            style={style.input} 
-        />
-        <Text style={style.email}>Email:</Text>
-        <TextInput 
-            placeholder=''
-            style={style.input} 
-        />
-        <Text style={style.celular}>Telefone</Text>
-        <TextInput 
-            placeholder=''
-            style={style.input} 
-        />
-        <Text style={style.senha}>Senha:</Text>
-        <TextInput 
-            placeholder='' 
             style={style.input}
         />
+        <Image source={require('../assets/comentarios.jpg')} style={style.notas} />
         <TouchableOpacity>
-          <Text style={style.btnText} onPress={() => navigation.navigate('Itens')}>Cadastro Feito</Text>
+          <Text style={style.btnText} onPress={() => navigation.navigate('Home')}>Avaliado</Text>
         </TouchableOpacity>
     </View>
-    );
-};
+    )
+}
 
 const style = StyleSheet.create({
     container: {
@@ -40,16 +27,21 @@ const style = StyleSheet.create({
         backgroundColor: '#fbcafb', 
     },
     title: {
-        fontSize: 30,
+        fontSize: 17,
         fontWeight: 'bold',
         color: 'black', // Texto branco
-        marginBottom: 15,
-        width: 150,
+        marginBottom: 5,
+        width: 230,
         alignItems: 'center'
+    },
+    comentar: {
+        fontSize: 25,
+        marginTop: 15,
+        color: 'black',
     },
     input: {
         width: 300, // Largura do botão
-        height: 45, // Altura do botão
+        height: 55, // Altura do botão
         marginBottom: 10, // Espaçamento inferior
         borderRadius: 20, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
@@ -60,29 +52,15 @@ const style = StyleSheet.create({
         marginBottom: 20,
         color: "black",
     },
-    nome: {
-        fontSize: 25,
-        marginTop: 10,
-        color: 'black',
-    },
-    email: {
-        fontSize: 25,
-        marginTop: 10,
-        color: 'black',
-    },
-    celular: {
-        fontSize: 25,
-        marginTop: 10,
-        color: 'black',
-    },
-    senha: {
-        fontSize: 25,
-        marginTop: 10,
-        color: 'black',
+    notas : {
+        width: 300,
+        height: 290,
+        marginBottom: 60,
+        resizeMode: 'cover', // Ajustado ao tamanho da imagem desejado
     },
     btnText: {
         width: 230, // Largura do botão
-        height: 45, // Altura do botão
+        height: 40, // Altura do botão
         marginBottom: 15, // Espaçamento inferior
         borderRadius: 15, // Borda arredondada
         justifyContent: 'center', // Centraliza o texto dentro do botão
@@ -91,5 +69,5 @@ const style = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         color: 'white',
-    },
+    }
 })
