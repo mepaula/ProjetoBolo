@@ -2,6 +2,7 @@ import {View, Text} from "react-native";
 import React, { useContext } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@react-native-community/masked-view";
 
 import Agendar from "./Agendar";
 import Home from "./Home";
@@ -24,9 +25,28 @@ export default function Rotas() {
 
     return (
         <NavigationContainer>
-          <Tab.Navigator initialRouteName="Home">
-            <Tab.Screen name="Home" component={Home} />
-            <Tab.Screen name="Cadastro" component={Cadastro} />
+          <Tab.Navigator 
+          screenOptions={{
+            headerShown: false
+          }}>
+          <Tab.Screen name="Home" 
+          component={Home} 
+          options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+            <Tab.Screen name="Cadastro" 
+            component={Cadastro} 
+            options={{
+            tabBarLabel: 'Cadastro',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="account" color={color} size={size} />
+              ),
+            }}
+          />
             <Tab.Screen name="Agendar" component={Agendar} />
             <Tab.Screen name="Itens" component={Itens} />
             <Tab.Screen name="Pagamento" component={Pagamento} />

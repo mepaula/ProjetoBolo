@@ -77,7 +77,7 @@ const dados = [
 
 ]
 
-export default function Home()
+export default function Home({navigation})
 {
     return(
         <View>
@@ -88,7 +88,8 @@ export default function Home()
             preco={item.preco}
             categoria={item.categoria}
             data={item.data}
-            image={item.image}             
+            image={item.image}
+            navigation={navigation}           
             />
         }
             keyExtractor={item => item.id}
