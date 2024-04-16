@@ -7,7 +7,7 @@ export default function Produto({titulo, preco, categoria, data,image, navigatio
         <Text style={css.preco}>{preco}</Text>
         <Text style={css.data}>{data}</Text>     
         <View style={css.img2}>
-            <Image style={{ height: 80, width: 110 }}
+            <Image style={{ height: 50, width: 80 }}
                                 source={{ uri: image }} />
         </View>
         <Button title="Agendar" onPress={() => navigation.navigate( "Agendar" )} />       
@@ -19,13 +19,13 @@ export default function Produto({titulo, preco, categoria, data,image, navigatio
 const css = StyleSheet.create({
     caixa: {
         width: "40%",
-        height: 190,
+        height: 200,
         backgroundColor: "#fbcafb",
-        borderRadius: 10,
+        borderRadius: 20,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        margin: 15
+        margin: 20
     },
     titulo: {
         fontSize: 15

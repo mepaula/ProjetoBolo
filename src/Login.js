@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { UserContext } from "./Context/UserContext";
 
-export default function Login() {
+export default function Login({ navigation }) {
 
   const[ email, setEmail ] = useState("");
   const[ senha, setSenha ] = useState("");
@@ -38,7 +38,7 @@ export default function Login() {
         onChangeText={ (digitado) => setSenha( digitado)}
         />
         <TouchableOpacity onPress={realizaLogin}>
-          <Text style={styles.btnText}>Login</Text>
+          <Text style={styles.btnText} onPress={() => navigation.navigate('Home')}>Login Feito</Text>
         </TouchableOpacity>
         {erro && <Text>Email ou senha está incorreta</Text>}
       </View>

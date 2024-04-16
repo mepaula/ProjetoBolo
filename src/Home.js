@@ -1,31 +1,79 @@
-import React, { useContext } from 'react';
-import { View, Text, Button, Image, StyleSheet } from 'react-native';
-import {UserContext} from './Context/UserContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { View, Text, Button, Image, StyleSheet, StatusBar, Switch } from 'react-native';
+import { UserContext } from './Context/UserContext';
+import { useBatteryLevel } from "expo-battery";
+import * as Newtwork from "expo-network";
 
-const Home = ({ navigation }) => {
+export default function Home({ navigation }){
 
-  const {usuario} = useContext( UserContext );
+  const { usuario } = useContext(UserContext);
+  const [ativado, setAtivado] = useState(false);
+  const [cor, setCor] = useState("#fbcafb");
+  const [bateria, setBateria] = useState(0);
+  const [rede, setRede] = useState(false);
+
+  const batteryLevel = useBatteryLevel();
+
+  async function getStatus() {
+    const status = await Newtwork.getNetworkStateAsync();
+    if (status.type == "WIFI") {
+      setRede(true);
+    }
+  }
+
+  useEffect(() => {
+    getStatus();
+  }, []);
+
+  useEffect(() => {
+    getStatus();
+  }, [rede]);
+
+  useEffect(() => {
+    setBateria((batteryLevel * 100).toFixed(0));
+  }, [batteryLevel]);
+
+  function CliqueSwitch() {
+    setAtivado(!ativado);
+    if (!ativado) {
+      setCor('white');
+    } else {
+      setCor('white');
+    }
+  }
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: cor }]}>
+      {bateria > 20 ?
+        <Switch
+          trackColor={{ false: 'lightgrey', true: 'lightgrey' }}
+          thumbColor={ativado ? 'blue' : 'gray'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={CliqueSwitch}
+          value={ativado}
+        />
+        : <Text>Recarregar o celular</Text>
+      }
+      
+      <StatusBar />
       <Text style={styles.title}>Bem-Vinda {usuario}</Text>
       <Image
-        source={require('../assets/logo-marca.jpg')} //*imagem adicionada como logo
+        source={require('../assets/logo-marca.jpg')}
         style={styles.logo}
       />
-      <Text style={styles.login}>Login</Text>
-      <Button 
-        title="Login" 
-        onPress={() => navigation.navigate('Login')} 
-        style={styles.button} 
-        color="#f6b0f7" // Cor do botão
+      <Text style={styles.login}>Faça o Login</Text>
+      <Button
+        title="Login"
+        onPress={() => navigation.navigate('Login')}
+        style={styles.button}
+        color="#f6b0f7"
       />
       <Text style={styles.cadastro}>Caso não tenho o login... se cadastre!</Text>
-      <Button 
-        title="Cadastre-se" 
-        onPress={() => navigation.navigate('Cadastro')} 
-        style={styles.button} 
-        color="#f6b0f7" // Cor do botão
+      <Button
+        title="Cadastre-se"
+        onPress={() => navigation.navigate('Cadastro')}
+        style={styles.button}
+        color="#f6b0f7"
       />
     </View>
   );
@@ -36,10 +84,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fbcafb', 
+    backgroundColor: '#fbcafb',
   },
   logo: {
-    width: 210,
+    width: 240,
     height: 150,
     marginBottom: 15,
     resizeMode: 'cover', // Ajustado ao tamanho da imagem desejado
@@ -53,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   login: {
-    fontSize: 25,
+    fontSize: 20,
     marginTop: 20,
     color: 'black',
   },
@@ -72,5 +120,3 @@ const styles = StyleSheet.create({
     backgroundColor: 'white', // Cor de fundo do botão
   }
 });
-
-export default Home;

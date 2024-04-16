@@ -2,7 +2,7 @@ import {View, Text} from "react-native";
 import React, { useContext } from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MaterialCommunityIcons } from "@react-native-community/masked-view";
+import Icons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import Agendar from "./Agendar";
 import Home from "./Home";
@@ -34,7 +34,7 @@ export default function Rotas() {
           options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <Icons name="home" color={color} size={size} />
             ),
           }}
         />
@@ -43,14 +43,46 @@ export default function Rotas() {
             options={{
             tabBarLabel: 'Cadastro',
             tabBarIcon: ({ color, size }) => (
-              <MaterialCommunityIcons name="account" color={color} size={size} />
+              <Icons name="account-circle" color={color} size={size} />
               ),
             }}
           />
-            <Tab.Screen name="Agendar" component={Agendar} />
-            <Tab.Screen name="Itens" component={Itens} />
-            <Tab.Screen name="Pagamento" component={Pagamento} />
-            <Tab.Screen name="Notas" component={Notas} />
+            <Tab.Screen name="Agendar" 
+            component={Agendar} 
+            options={{
+            tabBarLabel: 'Agendar',
+            tabBarIcon: ({ color, size }) => (
+              <Icons name="notebook-edit" color={color} size={size} />
+              ),
+            }}
+          />
+            <Tab.Screen name="Itens" 
+            component={Itens} 
+            options={{
+            tabBarLabel: 'Itens',
+            tabBarIcon: ({ color, size }) => (
+              <Icons name="format-list-bulleted" color={color} size={size} />
+              ),
+            }}
+            />
+            <Tab.Screen name="Pagamento" 
+            component={Pagamento} 
+            options={{
+            tabBarLabel: 'Pagamento',
+            tabBarIcon: ({ color, size }) => (
+              <Icons name="sack" color={color} size={size} />
+              ),
+            }}
+            />
+            <Tab.Screen name="Notas" 
+            component={Notas} 
+            options={{
+            tabBarLabel: 'Notas',
+            tabBarIcon: ({ color, size }) => (
+              <Icons name="star-circle" color={color} size={size} />
+              ),
+            }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       )
